@@ -385,3 +385,20 @@ code {
   white-space: pre-wrap; /* はみ出たときに折り返す */
   font-family: "Source Code Pro", serif!important;
 }
+details {
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+details summary {
+  padding: 10px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+details:not(summary) {
+  padding: 10px;
+}
+input[type="checkbox"], input[type="radio"], input[type="range"], progress:checked {
+  accent-color: var(--accent-color);
+}
