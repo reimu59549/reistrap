@@ -1,0 +1,387 @@
+/*
+Theme Name: Reistrap
+Text Domain: reistrap
+Author: れいちゃん
+Author URI: https://aru-asobiba.f5.si/
+Tags: blog, two-columns, right-sidebar, custom-colors, custom-menu, theme-options
+Version: 0.6.5
+Description: シンプルなデザインのWordPressテーマです。
+License: GNU General Public License v3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+*/
+
+
+body {
+    margin: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+.container * a {
+position: relative;
+display: block;
+color: var(--accent-color);
+font-weight: bold;
+text-decoration: none;
+width: fit-content;
+}
+.container * a::before {
+  background: var(--accent-color);
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform .3s;
+}
+.container * a:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+.wrapper {
+position: relative;
+display: grid;
+grid-template-columns: 2fr 1fr;
+}
+.main {
+position: relative;
+}
+.sidebar {
+position: relative;
+}
+body:has(.global-nav.active) {
+overflow: hidden;
+}
+.header {
+    background-color: #fff;
+}
+.header__inner {
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__inner nav ul {
+position: relative;
+display: flex;
+list-style: none;
+flex-direction: column;
+}
+.header__inner nav ul li {
+position: relative;
+display: block;
+margin-right: 12px;
+}
+/* ハンバーガーメニュー */
+.header__hamburger {
+  width: 48px;
+  height: 100%;
+}
+
+.hamburger {
+  background-color: transparent; /*buttonタグデフォルトスタイルを打ち消し*/
+  border-color: transparent; /*buttonタグデフォルトスタイルを打ち消し*/
+  z-index: 9999999;
+  cursor: pointer;
+}
+/* ハンバーガーメニューの線 */
+.hamburger span {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+  transition: ease .4s; /*ハンバーガーメニュークリック時の三本線の動きを遅延*/
+  display: block;
+  z-index: calc(infinity);
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  margin: 8px 0;
+}
+
+
+.hamburger span:nth-child(3) {
+  top: 0;
+}
+.global-nav.active {
+  transform: translateX(0);
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: -13px;
+  transform: rotate(-45deg);
+}
+.global-nav {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateX(100%); 
+  background-color: #fff; /*ハンバーガーメニュークリック時のナビゲーションメニュー背景色*/
+  transition: ease .4s; /*ハンバーガーメニュークリック時のナビゲーションメニュー出現を遅延*/
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999999;
+}
+@media screen and (min-width: 960px) {
+  .global-nav {
+    position: static;
+    transform: initial;
+    background-color: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 80%;
+  }
+  .header__inner nav ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: initial;
+    justify-content: space-between;
+    font-size: 18px;
+  }
+  .hamburger {
+    display: none;
+  }
+
+}
+.entries {
+position: relative;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.entry-item{
+  width: 288px;
+  height: auto;
+  box-shadow: 2px 2px 6px rgba(0,0,0,.4);
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+.entry-item__thumb{
+  width: 100%;
+  height: auto;
+  padding-top: 56.25%;
+  background: url(https://placehold.jp/640x360.png) no-repeat center;
+  background-size: cover;
+  box-sizing: border-box;
+}
+.entry-item__ttl{
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 125%;
+}
+.entry-item__exp{
+  font-size: 12px;
+  line-height: 150%;
+}
+.page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 8px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.page-numbers li a {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border: 1px solid #2589d0;
+    border-radius: 25px;
+    color: #2589d0;
+}
+
+.page-numbers a:not(:hover) {
+    text-decoration: none;
+}
+
+.page-numbers .current a {
+    background-color: #2589d0;
+    color: #fff;
+    pointer-events: none;
+}
+.post-categories li {
+position: relative;
+display: block;
+background-color: #dcdcdc;
+border-radius: 13px;
+width: fit-content;
+}
+.post-categories li a {
+position: relative;
+display: block;
+text-decoration: none;
+}
+.site-name {
+    margin: 0;
+    font-size: 20px;
+}
+.site-name a {
+    color: currentColor;
+    text-decoration: none;
+}
+.contents {
+    padding: 40px 0;
+}
+@media screen and (max-width:768px) {
+ .wrapper {
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ }
+}
+textarea, input[type="text"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime-local"], input[type="color"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 3px solid #000;
+    border-radius: 25px;
+    background: #d3d3d3;
+    color: #333;
+    font-size: 1em;
+    line-height: 1.5;
+}
+textarea, input[type="text"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime-local"], input[type="color"]:focus {
+position: relative;
+display: block;
+border: 3px solid var(--accent-color);
+}
+
+textarea, input[type="text"], input[type="number"], input[type="password"], input[type="tel"], input[type="url"], input[type="email"], input[type="search"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime-local"], input[type="color"]::placeholder {
+    color: #999;
+}
+blockquote {
+    position: relative;
+    padding: 35px 15px 10px 15px;
+    box-sizing: border-box;
+    font-style: italic;
+    background: #f5f5f5;
+    color: #777777;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    content: "“";
+    font-family: sans-serif;
+    color: var(--accent-color);
+    font-size: 90px;
+    line-height: 1;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 7px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+input[type="button"], input[type="submit"], input[type="reset"], button, .wp-block-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin:0 auto;
+    padding: .9em 2em;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 25%), 0 2px 3px -2px rgb(0 0 0 / 15%);
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button, .wp-block-button:hover {
+    background-color: color-mix(in srgb, var(--accent-color), #000 23%);
+}
+.entry-tag ul li a {
+position: relative;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.entry-tag ul li:before {
+content: "#";
+position: relative;
+display: block;
+}
+.wrapper * ul, ol {
+  padding: 0;
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+
+.wrapper * ul li, .wrapper * ol li {
+  color: #2d8fdd;
+  border-left: solid 6px #2d8fdd;/*左側の線*/
+  background: color-mix(in srgb, var(--accent-color), #fff 60%);/*背景色*/
+  margin-bottom: 3px;/*下のバーとの余白*/
+   line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+}
+.wrapper * h1, h2, h3, h4, h5, h6 {
+  color: #010079;
+  text-shadow: 0 0 5px white;
+  border-left: solid 7px var(--accent-color);
+  background: -webkit-repeating-linear-gradient(-45deg, color-mix(in srgb, var(--accent-color), #fff 60%), color-mix(in srgb, var(--accent-color), #fff 60%) 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--accent-color), #fff 60%), color-mix(in srgb, var(--accent-color), #fff 60%) 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+
+code {
+  margin: 1em 0; /* ブロック前後の余白 */
+  padding: 1em; /* ブロック内の余白 */
+  border-radius: 5px; /* 角丸 */
+  background: #25292f; /* 背景色 */
+  color: #fff; /* 文字色 */
+  white-space: pre-wrap; /* はみ出たときに折り返す */
+  font-family: "Source Code Pro", serif!important;
+}
