@@ -52,7 +52,7 @@ add_action('after_setup_theme', 'my_theme_setup' );
 
 function load() {
 $theme_dir = get_template_directory_uri();
-wp_enqueue_style('main', $theme_dir.'/style.css', array(), '0.9.9');
+wp_enqueue_style('main', $theme_dir.'/style.css', array(), '1.1.9');
 wp_enqueue_style('bs-icon', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array());
 wp_enqueue_style('highlightjs', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css', array());
 wp_enqueue_script( 'wp-color-picker' );
