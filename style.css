@@ -402,3 +402,29 @@ details:not(summary) {
 input[type="checkbox"], input[type="radio"], input[type="range"], progress:checked {
   accent-color: var(--accent-color);
 }
+/* トップへ戻るボタン */
+.pagetop {
+  position: fixed!important;
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  right: 20px!important;
+  bottom: 20px!important;
+  width: 80px!important;
+  height: 80px!important;
+  font-size: 20px!important;
+  font-weight: bold!important;
+  color: #fff!important;
+  background: var(--accent-color)!important;
+  border: none!important;
+  border-radius: 50%!important;
+  cursor: pointer!important;
+  opacity: 0!important;
+  visibility: hidden!important;
+  transition: .3s!important;
+}
+/* クラス付与時の指定 */
+.pagetop.is-active {
+  opacity: 1!important;
+  visibility: visible!important;
+}
