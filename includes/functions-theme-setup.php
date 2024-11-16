@@ -62,7 +62,9 @@ wp_enqueue_style( 'wp-color-picker' );
     }
 wp_enqueue_script('highlight', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js', array(), null, true);
 wp_enqueue_script('highlight-language', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/go.min.js', array(), null, true);
-wp_enqueue_script('nav-hamburger', $theme_dir.'/js/nav.js', array(), null, true);	
+wp_enqueue_script('nav-hamburger', $theme_dir.'/js/nav.js', array(), null, true);
+wp_enqueue_script('detail-animation', $theme_dir.'/js/accordion.js', array(), null, true);
+
 }
 add_action('wp_enqueue_scripts', 'load');
 ?>
